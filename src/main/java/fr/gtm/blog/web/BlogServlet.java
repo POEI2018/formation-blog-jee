@@ -13,16 +13,16 @@ public class BlogServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Point d'entrée de la requête HTTP envoyée par le client (navigateur).
+	 * Point d'entrÃ©e de la requÃªte HTTP envoyÃ©e par le client (navigateur).
 	 */
 	@Override
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		// Récupération d'un objet permettant d'écrire dans la réponse renvoyée
+		// RÃ©cupÃ©ration d'un objet permettant d'Ã©crire dans la rÃ©ponse renvoyÃ©e
 		// au client.
 		final PrintWriter writer = response.getWriter();
-		// Ecriture de chaînes de caractères dans le buffer d'un flux
-		// représentant le corps de la réponse HTTP.
+		// Ecriture de chaÃ®nes de caractÃ¨res dans le buffer d'un flux
+		// reprÃ©sentant le corps de la rÃ©ponse HTTP.
 		writer.append("<html>");
 		writer.append("<body>");
 		writer.append("<h1>HelloWorld servlet !!</h1>");
