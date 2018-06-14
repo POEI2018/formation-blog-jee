@@ -9,9 +9,17 @@
 		<servlet-name>BlogServlet</servlet-name>
 		<servlet-class>fr.gtm.blog.web.BlogServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>IndexServlet</servlet-name>
+		<servlet-class>fr.gtm.blog.web.IndexServlet</servlet-class>
+	</servlet>
 	
 	<servlet-mapping>
 		<servlet-name>BlogServlet</servlet-name>
 		<url-pattern>/helloworld</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>IndexServlet</servlet-name>
+		<url-pattern>/articles</url-pattern>
 	</servlet-mapping>
 </web-app>
