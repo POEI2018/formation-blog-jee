@@ -1,16 +1,13 @@
 package fr.gtm.blog.web;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import fr.gtm.blog.domain.Article;
+import fr.gtm.blog.business.ArticleService;
 
 /**
  * Point d'entrée dans l'application par l'URL '/articles'. Permet de traiter
@@ -19,11 +16,15 @@ import fr.gtm.blog.domain.Article;
 public class IndexServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	private static final List<Article> articles = Collections
-			.unmodifiableList(Arrays.asList(
-					new Article[] { new Article(0, "Article n°1", "DESCR"),
-							new Article(1, "Article n°2", "DESCR"),
-							new Article(2, "Article n°3", "DESCR") }));
+
+	private ArticleService service;
+
+	@Override
+	public void init() throws ServletException {
+		// super.init(); -> inutile car vide dans HttpServlet.
+		final int idCount = Integer.parseInt(this.getInitParameter("idCount"));
+		this.service = new ArticleService(idCount);
+	}
 
 	/**
 	 * Point d'entrée pour une requête HTTP (<b>method=GET</b>) envoyée par le
@@ -32,7 +33,8 @@ public class IndexServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("listArticle", IndexServlet.articles);
+		request.getSession().setAttribute("listArticle",
+				this.service.getArticles());
 		this.getServletContext()
 				.getRequestDispatcher("/WEB-INF/views/index.jsp")
 				.forward(request, response);

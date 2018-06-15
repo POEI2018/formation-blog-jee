@@ -12,6 +12,10 @@
 	<servlet>
 		<servlet-name>IndexServlet</servlet-name>
 		<servlet-class>fr.gtm.blog.web.IndexServlet</servlet-class>
+		<init-param>
+			<param-name>idCount</param-name>
+			<param-value>3</param-value>
+		</init-param>
 	</servlet>
 	<servlet>
 		<servlet-name>ArticleServlet</servlet-name>

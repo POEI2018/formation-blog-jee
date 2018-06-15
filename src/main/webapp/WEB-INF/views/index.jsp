@@ -1,6 +1,6 @@
 <%-- Configuration d'une page JSP avec la syntaxe "<%@ ... %>" --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" isELIgnored="false" %>
+    pageEncoding="UTF-8" isELIgnored="false" session="true" %>
 <%-- Import de la librairie de tags JSTL core. --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -22,7 +22,7 @@ au contenu HTML généré en sortie. --%>
 	<div class="main">
 		<%-- Utilisation du tag forEach pour parcourir une collection (== Iterable)
 		Java. Cela permet de dupliquer les éléments HTML à l'intérieur du tag. --%>
-		<c:forEach var="article" items="${listArticle}">
+		<c:forEach var="article" items="${sessionScope.listArticle}">
 			<div class="article">
 				<%-- Accès à la propriété d'un POJO -> on écrit "article.title" mais
 				en réalité l'expression qui sera évaluée est 'article.getTitle(). --%>
