@@ -20,6 +20,8 @@ au contenu HTML généré en sortie. --%>
 		Java. Cela permet de dupliquer les éléments HTML à l'intérieur du tag. --%>
 		<c:forEach var="article" items="${listArticle}">
 			<div class="article">
+				<%-- Accès à la propriété d'un POJO -> on écrit "article.title" mais
+				en réalité l'expression qui sera évaluée est 'article.getTitle(). --%>
 				<h2>${article.title}</h2>
 				<p>${article.description}</p>
 			</div>
