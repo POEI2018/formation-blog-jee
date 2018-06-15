@@ -61,8 +61,10 @@ public class ArticleService {
 	public void delete(int id) {
 		Article toDelete = null;
 		for (Article a : this.articles) {
-			toDelete = a;
-			break;
+			if (a.getId().equals(id)) {
+				toDelete = a;
+				break;
+			}
 		}
 		if (toDelete != null) {
 			this.articles.remove(toDelete);
