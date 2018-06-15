@@ -15,6 +15,10 @@ au contenu HTML généré en sortie. --%>
 </head>
 <body>
 	<h1>Bienvenue sur mon blog !</h1>
+	<h2>
+		<c:url value="/manage" var="manageUrl" />
+		<a href="${manageUrl}">Créer un nouvel article</a>
+	</h2>
 	<div class="main">
 		<%-- Utilisation du tag forEach pour parcourir une collection (== Iterable)
 		Java. Cela permet de dupliquer les éléments HTML à l'intérieur du tag. --%>
