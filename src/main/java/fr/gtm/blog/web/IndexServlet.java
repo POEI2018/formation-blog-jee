@@ -17,13 +17,13 @@ public class IndexServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
-	private ArticleService service;
-
 	@Override
 	public void init() throws ServletException {
 		// super.init(); -> inutile car vide dans HttpServlet.
 		final int idCount = Integer.parseInt(this.getInitParameter("idCount"));
-		this.service = new ArticleService(idCount);
+		// Appel permettant de donner une valeur d'instance unique à
+		// ArticleService.
+		ArticleService.prepareSingleton(idCount);
 	}
 
 	/**
@@ -34,7 +34,8 @@ public class IndexServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		request.getSession().setAttribute("listArticle",
-				this.service.getArticles());
+				// Accès à l'instance unique de ArticleService.
+				ArticleService.getSingleton().getArticles());
 		this.getServletContext()
 				.getRequestDispatcher("/WEB-INF/views/index.jsp")
 				.forward(request, response);
