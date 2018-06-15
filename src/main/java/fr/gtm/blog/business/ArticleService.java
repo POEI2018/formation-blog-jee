@@ -57,4 +57,15 @@ public class ArticleService {
 	public List<Article> getArticles() {
 		return articles;
 	}
+
+	public void delete(int id) {
+		Article toDelete = null;
+		for (Article a : this.articles) {
+			toDelete = a;
+			break;
+		}
+		if (toDelete != null) {
+			this.articles.remove(toDelete);
+		}
+	}
 }
