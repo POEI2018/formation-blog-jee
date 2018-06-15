@@ -37,12 +37,4 @@ public class IndexServlet extends HttpServlet {
 				.getRequestDispatcher("/WEB-INF/views/index.jsp")
 				.forward(request, response);
 	}
-
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
-		// Récupérer les paramètres title et description.
-		// Construire un nouvel Article et le persister en BDD.
-		// Afficher la nouvelle liste d'articles.
-	}
 }
