@@ -7,23 +7,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import fr.gtm.blog.business.ArticleService;
 
 /**
  * Point d'entrée dans l'application par l'URL '/articles'. Permet de traiter
  * les requêtes HTTP en fournissant pour chaque demande un objet de réponse.
  */
-public class IndexServlet extends HttpServlet {
-
+public class IndexServlet extends AutoWiredServlet {
 	private static final long serialVersionUID = 1L;
+
+	@Autowired 
+	private ArticleService service ; 
 
 	@Override
 	public void init() throws ServletException {
-		// super.init(); -> inutile car vide dans HttpServlet.
-		final int idCount = Integer.parseInt(this.getInitParameter("idCount"));
+	    super.init(); //-> inutile car vide dans HttpServlet.
+		//final int idCount = Integer.parseInt(this.getInitParameter("idCount"));
 		// Appel permettant de donner une valeur d'instance unique à
 		// ArticleService.
-		ArticleService.prepareSingleton(idCount);
+		//ArticleService.prepareSingleton(idCount);
 	}
 
 	/**
@@ -35,8 +39,8 @@ public class IndexServlet extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		request.getSession().setAttribute("listArticle",
 				// Accès à l'instance unique de ArticleService.
-				ArticleService.getSingleton().getArticles());
-		this.getServletContext()
+				service.getArticles());
+		        this.getServletContext()
 				.getRequestDispatcher("/WEB-INF/views/index.jsp")
 				.forward(request, response);
 	}

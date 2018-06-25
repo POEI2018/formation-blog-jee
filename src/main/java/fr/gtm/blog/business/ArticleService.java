@@ -12,20 +12,7 @@ public class ArticleService {
 	// Début implémentation Design Pattern Singleton -> Classe n'ayant qu'une
 	// seule et unique instance.
 
-	private static ArticleService INSTANCE;
-
-	public static ArticleService getSingleton() {
-		return ArticleService.INSTANCE;
-	}
-
-	public static void prepareSingleton(int idCount)
-			throws UnsupportedOperationException {
-		if (ArticleService.INSTANCE == null) {
-			ArticleService.INSTANCE = new ArticleService(idCount);
-		} else {
-			throw new UnsupportedOperationException();
-		}
-	}
+	
 
 	// Fin implémentation Singleton.
 
