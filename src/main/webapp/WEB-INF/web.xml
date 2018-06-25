@@ -44,4 +44,15 @@
 		<servlet-name>DeleteServlet</servlet-name>
 		<url-pattern>/delete</url-pattern>
 	</servlet-mapping>
+	
+	<filter>
+		<filter-name>Filtre Authentification</filter-name>
+		<filter-class>fr.gtm.blog.web.AuthFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>Filtre Authentification</filter-name>
+		<url-pattern>/helloworld</url-pattern>
+		<url-pattern>/articles/*</url-pattern>
+		<url-pattern>/manage</url-pattern>
+	</filter-mapping>
 </web-app>

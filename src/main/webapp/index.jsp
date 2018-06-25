@@ -7,6 +7,10 @@
 Lorsque l'URL racine de l'application est demandée (http://localhost:8080/blog/), c'est cette
 page JSP qui sera choisie pour répondre à la requête. --%>
 <html>
+	<%
+		// TODO: Replace with real login page.
+		request.getSession().setAttribute("auth", "guest");
+	%>
 	<%-- Tag redirect permettant de rediriger une requête HTTP vers un autre point
 	d'entrée dans l'application (ici on redirige vers une Servlet). --%>
 	<c:redirect url="/articles" />
