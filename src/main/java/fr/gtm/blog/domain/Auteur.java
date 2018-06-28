@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
-public class Auteur implements Serializable {
+public class Auteur implements Entity, Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	

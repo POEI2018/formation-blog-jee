@@ -1,19 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration debug="false">
-	<statusListener class="ch.qos.logback.core.status.NopStatusListener" />
-	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+
+	<property name="myPattern"
+		value="%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{24} - %msg%n" />
+
+	<statusListener
+		class="ch.qos.logback.core.status.NopStatusListener" />
+
+	<appender name="STDOUT"
+		class="ch.qos.logback.core.ConsoleAppender">
 		<layout class="ch.qos.logback.classic.PatternLayout">
 			<Pattern>
-				%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{24} - %msg%n
+				${myPattern}
 			</Pattern>
 		</layout>
 	</appender>
-	
+
+	<appender name="APPLOG"
+		class="ch.qos.logback.core.FileAppender">
+		<file>C:\Users\Adminl\Desktop\logs\logs.log</file>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>${myPattern}</Pattern>
+		</layout>
+	</appender>
+
+
 	<logger level="debug" name="fr.gtm.blog" additivity="false">
 		<appender-ref ref="STDOUT" />
+		<appender-ref ref="APPLOG" />
 	</logger>
-	
-	<logger level="debug" name="org.springframework.web" additivity="false">
+
+	<logger level="debug" name="org.springframework.web"
+		additivity="false">
 		<appender-ref ref="STDOUT" />
 	</logger>
 

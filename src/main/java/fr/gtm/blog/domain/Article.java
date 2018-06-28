@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Classe d'entité POJO représentant une donnée d'article de blog.
  */
-public class Article implements Serializable {
+public class Article implements Entity, Serializable {
 
 	private static final long serialVersionUID = 1L;
 

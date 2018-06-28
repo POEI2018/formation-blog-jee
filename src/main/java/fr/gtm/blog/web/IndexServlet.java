@@ -8,7 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import fr.gtm.blog.business.ArticleService;
+import fr.gtm.blog.business.AuteurService;
+import fr.gtm.blog.business.CrudService;
+import fr.gtm.blog.domain.Article;
 
 /**
  * Point d'entrée dans l'application par l'URL '/articles'. Permet de traiter
@@ -18,7 +20,10 @@ public class IndexServlet extends AutoWiredServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Autowired 
-	private ArticleService service ; 
+	private CrudService<Article> service ; 
+	
+	@Autowired
+	private AuteurService auteurService ; 
 	
 
 	@Override
@@ -39,7 +44,7 @@ public class IndexServlet extends AutoWiredServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		request.getSession().setAttribute("listArticle",
 				// Accès à l'instance unique de ArticleService.
-				service.getArticles());
+				service.getList());
 		        this.getServletContext()
 				.getRequestDispatcher("/WEB-INF/views/index.jsp")
 				.forward(request, response);

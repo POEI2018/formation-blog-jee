@@ -9,12 +9,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import fr.gtm.blog.business.ArticleService;
+import fr.gtm.blog.business.CrudService;
+import fr.gtm.blog.domain.Article;
 
 public class DeleteServlet extends AutoWiredServlet {
 
 	@Autowired 
-	private ArticleService service ; 
+	private CrudService<Article> service ; 
 	private static final long serialVersionUID = 1L;
 	
 
