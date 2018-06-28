@@ -14,24 +14,22 @@ public class Article implements Serializable {
 	private String title;
 
 	private String description;
+	
+	private Auteur auteur ; 
 
 	/**
 	 * Constructeur par défaut
 	 */
 	public Article() {
-
 	}
 
 	/**
-	 * Constructeur avec arguments pour faciliter la création d'articles de test
-	 * (Mock).
+	 * Constructeur avec arguments pour faciliter la création.
 	 * 
-	 * @param id l'identifiant unique de l'article.
 	 * @param title son titre.
 	 * @param description son paragraphe de description.
 	 */
-	public Article(Integer id, String title, String description) {
-		this.id = id;
+	public Article(String title, String description) {
 		this.title = title;
 		this.description = description;
 	}
@@ -58,6 +56,14 @@ public class Article implements Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public Auteur getAuteur() {
+		return auteur;
+	}
+
+	public void setAuteur(Auteur auteur) {
+		this.auteur = auteur;
 	}
 
 }
