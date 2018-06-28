@@ -9,5 +9,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import fr.gtm.blog.domain.Auteur;
 
 public interface AuteurRepository extends JpaRepository<Auteur, Integer> {
+	
+	Auteur findByName(final String name) ;
 
 }
