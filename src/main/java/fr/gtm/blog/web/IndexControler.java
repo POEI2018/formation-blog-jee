@@ -25,10 +25,10 @@ public class IndexControler {
 	}
 	
 	@RequestMapping("/delete")
-	public ModelAndView delete(@RequestParam("id") Integer id) {
+	public String delete(@RequestParam("id") Integer id) {
 		articleService.delete(id);
 		
-		return this.index() ;
+		return "redirect:/index.html";
 		
 	}
 	
@@ -38,10 +38,17 @@ public class IndexControler {
 	}
 	
 	@PostMapping("/manage")
-	public ModelAndView submit(@RequestParam("title") String nom, @RequestParam("descr") String desc) {
+	public String submit(@RequestParam("title") String nom, @RequestParam("descr") String desc, @RequestParam("id") Integer id ) {
 		
-		articleService.create(new Article(nom, desc));
-		return this.index() ; 
+		 if (id == null)  
+		     articleService.create(new Article(nom, desc));
+		 else {
+			 Article article = new Article(nom, desc) ;
+			 article.setId(id);
+			 articleService.edit(article) ;
+		 }
+		
+		return "redirect:/index.html" ; 
 	}
 	
 	
