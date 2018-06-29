@@ -12,5 +12,7 @@ public class IndexControler {
 		final ModelAndView mav = new ModelAndView("index") ; 
 		return mav ; 
 	}
+	
+	
 
 }
