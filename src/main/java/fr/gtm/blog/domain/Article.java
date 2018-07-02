@@ -2,6 +2,8 @@ package fr.gtm.blog.domain;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * Classe d'entité POJO représentant une donnée d'article de blog.
  */
@@ -9,11 +11,13 @@ public class Article implements Entity, Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	
 	private Integer id;
 
 	private String title;
 
 	private String description;
+	
 	
 	private Auteur auteur ; 
 
