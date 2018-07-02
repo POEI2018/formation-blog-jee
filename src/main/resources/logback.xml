@@ -27,6 +27,9 @@
 
 	<logger level="debug" name="fr.gtm.blog" additivity="false">
 		<appender-ref ref="STDOUT" />
+	</logger>
+	
+	<logger level="info" name="fr.gtm.blog" additivity="false">
 		<appender-ref ref="APPLOG" />
 	</logger>
 
@@ -35,7 +38,5 @@
 		<appender-ref ref="STDOUT" />
 	</logger>
 
-	<root level="info">
-		<appender-ref ref="STDOUT" />
-	</root>
+
 </configuration>

@@ -38,5 +38,18 @@ au contenu HTML généré en sortie. --%>
 			</div>
 		</c:forEach>
 	</div>
+	
+	<h2 style="text-decoration: underline;">Rechercher un article</h2>
+	
+    <form method="post">
+			<div>
+				<label for="title">Search Article :</label>
+				<input id="title" name="title" />
+			</div>
+			
+			<button>Valider</button>
+		</form>         
+
+               
 </body>
 </html>

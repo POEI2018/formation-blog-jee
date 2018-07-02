@@ -18,9 +18,15 @@
 				nom de la colonne -->
 			<basic name="description" />
 			<many-to-one name="auteur">
-			   <join-column name="auteur_id" referenced-column-name="id"/>
+				<join-column name="auteur_id"
+					referenced-column-name="id" />
 			</many-to-one>
 		</attributes>
+
+
+		
+
+
 	</entity>
 
 	<entity class="fr.gtm.blog.domain.Adresse">
@@ -41,11 +47,13 @@
 			</id>
 			<basic name="name" />
 			<basic name="subDate" />
-			<one-to-many name="articles" mapped-by="auteur"  >
-				<!-- <join-column name="auteur_id"> Définition unidirectionnelle de la relation -->
+			<one-to-many name="articles" mapped-by="auteur">
+				<!-- <join-column name="auteur_id"> Définition unidirectionnelle de la 
+					relation -->
 			</one-to-many>
 			<one-to-one name="adresse">
-				<join-column name="adresse_id" referenced-column-name="id"></join-column>
+				<join-column name="adresse_id"
+					referenced-column-name="id"></join-column>
 			</one-to-one>
 		</attributes>
 
