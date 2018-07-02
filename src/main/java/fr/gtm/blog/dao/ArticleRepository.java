@@ -12,7 +12,7 @@ import fr.gtm.blog.domain.Article;
 public interface ArticleRepository extends JpaRepository <Article, Integer> {
 	
 	 
-	 @Query(value = "SELECT * FROM article WHERE title = ?1", nativeQuery = true)
+	 @Query(value = "SELECT * FROM article WHERE title LIKE CONCAT('%',?1,'%')", nativeQuery = true)
 	  List<Article> findArticleByTitle(String title);
 
 }
